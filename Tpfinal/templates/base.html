@@ -3,7 +3,11 @@
 <html lang="en" class="h-100">
 <head>
     <meta charset="UTF-8">
-    <title>Vacunatorios</title>
+    <title>To-do List</title>
+
+    <!-- board boostrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,10 +25,10 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="{% url 'logout' %}">
                 {% load static %}
-                <img src="{% static 'images/jeringa.png' %}" alt="" width="40" height="40">
-                Vacunate
+                <img src= "{% static 'images/logo.jpg' %}" alt="utn" width="40" height="40">
+                Home
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,7 +39,7 @@
                 {% block nav %}
                 {% if user.is_authenticated %}
                     <form class="d-flex">
-                        <button class="btn btn-outline-success" type="submit"> <a href="{% url 'logout' %}">logout</a> </button>
+                        <button class="btn btn-outline-danger" type="submit"> <a href="{% url 'logout' %}">logout</a> </button>
                     </form>
                 {% else %}
                     <form class="d-flex">
@@ -47,6 +51,8 @@
         </div>
     </nav>
 </header>
+
+
     <div id="content" name="content" class="main">
 		<div class="row justify-content-center">
 			<div class="col-8">
@@ -60,7 +66,7 @@
 
 <footer class="footer mt-auto py-3 bg-light">
     <div class="container" style="text-align: center;">
-        <span class="text-muted">Universidad Tecnológica Nacional - Investigacion Operativa II</span>
+        <span class="text-muted">Universidad Tecnológica Nacional - Metodologia de Sistemas 3</span>
     </div>
 </footer>
 
