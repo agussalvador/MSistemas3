@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/board/', views.board, name='board'),
     path('register/', v.register, name="register"),
     path('', include("django.contrib.auth.urls")),
+
     # Task urls
     path('createtask', GenericCreateTask.as_view()),
     path('createcategory', GenericCreateCategory.as_view()),

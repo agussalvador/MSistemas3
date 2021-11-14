@@ -14,7 +14,7 @@ def index(request):
 @login_required
 def board(request):
     return render(request,
-                  'board2.html',
+                  'board.html',
                   {'tasks': Task.objects.all()}
                   )
 
@@ -23,12 +23,12 @@ class GenericCreateCategory(CreateView):
     model = Category
     fields = ['name']
     template_name = 'form.html'
-    success_url = '/'
+    success_url = '/login/board'
 
 
 class GenericCreateTask(CreateView):
     model = Task
-    fields = ['name', 'category', 'user']
+    fields = ['name', 'user', 'category']
     template_name = 'form.html'
     success_url = '/login/board'
 
