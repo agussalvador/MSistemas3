@@ -28,9 +28,13 @@ class GenericCreateCategory(CreateView):
 
 class GenericCreateTask(CreateView):
     model = Task
-    fields = ['name', 'user', 'category']
+    fields = ['name', 'category']
     template_name = 'form.html'
     success_url = '/login/board'
+
+    def form_valid(self, form):  # asigna el usuario que crea la Task, al objeto task
+        form.instance.user = self.request.user
+        return super(GenericCreateTask, self).form_valid(form)
 
 
 class GenericUpdateTask(UpdateView):
