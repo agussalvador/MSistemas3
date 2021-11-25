@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+
+
+    {% block content %}
+
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="{{sede.imagen.url}}" alt="Imagen">
+                <div class="card-body">
+                    <h1 class="text-center">{{sede.nombre}}</h1>
+                    {% if user.is_authenticated %}
+                    <p>Welcome, {{ user.username }}. Thanks for logging in.</p>
+                    {% else %}
+                    <p>Welcome, new user. Please log in.</p>
+                    {% endif %}
+                    <hr/>
+                    <div class="row">
+                        <div class="col">
+                            <p><b>Calle:</b> {{sede.calle}} {{sede.numero}}</p>
+                        </div>
+                        <div class="col">
+                            <p><b>Vacuna:</b> {{sede.vacuna}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <!--Calcular longitud de cola / promedio de llegadas por hora-->
+                            <p><b>Espera estimada:</b><br> {{ promedio }} minutos</p>
+                        </div>
+                        <div class="col">
+                            <p><b>Estado:</b> {{sede.estado}}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+    {% endblock %}
